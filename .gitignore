@@ -4,3 +4,4 @@ log/*.log
 tmp/
 .sass-cache/
 config/daylife.yaml
+*.*~
