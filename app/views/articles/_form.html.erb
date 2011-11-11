@@ -1,0 +1,32 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Search string</th>
+    <th>From date</th>
+    <th>To date</th>
+	<th>Sources</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ <%= form_tag('/articles') do -%>
+
+
+<% @events.each do |event| %>
+  <tr>
+	<td><%=  check_box("event_checkbox", event.id, {}, "yes", "no") %></td>
+    <td><%= event.name %></td>
+    <td><%= event.search_string %></td>
+    <td><%= event.from_date %></td>
+    <td><%= event.to_date %></td>
+	<% @sources.each do |source| %>
+	     <td><%=  check_box("source_" + event.id.to_s(), source.id, {}, "yes", "no") %></td>
+	      <td><%= source.name %></td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+   <div><%= submit_tag 'Fetch' %></div>
+ <% end -%>
+<br />
+

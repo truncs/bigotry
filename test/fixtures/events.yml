@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  search_string: MyString
+  from_date: 2011-11-10 02:50:56
+  to_date: 2011-11-10 02:50:56
+
+two:
+  name: MyString
+  search_string: MyString
+  from_date: 2011-11-10 02:50:56
+  to_date: 2011-11-10 02:50:56
