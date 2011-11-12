@@ -53,25 +53,32 @@ class ArticlesController < ApplicationController
         params[str.to_sym].each do |source_key, source_value|
           if source_value == "yes"
             @source = Source.find(source_key)
-            r = @daylife.execute('search', 'getRelatedArticles', :query => @event.search_string, :limit => 5, :source_whitelist => @source.daylife_id, :start_time => @event.from_date, :end_time => @event.to_date)
+            r = @daylife.execute('search', 'getRelatedArticles', :query => @event.search_string, :limit => 100, :source_whitelist => @source.daylife_id, :start_time => @event.from_date, :end_time => @event.to_date, :sort => 'relevance')
             if(r.success?)
               logger.info 'aditya'
               r.articles.each do |a| 
               
  #               logger.info enrich_data(Readability::Document.new(source).content)
-  #              logger.info a.url
-                @article = Article.new
-                @article.headline = a.headline
-                @article.url = a.url
-                source = open(a.url).read
-                @article.content =  enrich_data(Readability::Document.new(source).content)
-                @article.source_id = @source.id
-                @article.event_id = @event.id
-              #  logger.info @article.content
-                if @article.save
-                  num_articles += 1
-                else
-                  logger.info 'Could not save the article ' + a.url
+                #              logger.info a.url
+                #                logger.info a.nil?
+                begin
+                  source =   open(a.url).read
+                  
+                  @article = Article.new
+                  @article.headline = a.headline
+                  @article.url = a.url
+                  @article.content =  enrich_data(Readability::Document.new(source).content)
+                  @article.source_id = @source.id
+                  @article.event_id = @event.id
+                  #  logger.info @article.content
+                  if @article.save
+                    num_articles += 1
+                  else
+                    logger.info 'Could not save the article ' + a.url
+                  end
+                  
+                rescue => e
+                    logger.info "error is: #{e}"
                 end
               end
             else 

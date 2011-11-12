@@ -81,7 +81,7 @@ module Daylife
     end
     
     # Pass through missing methods to the daylife node for easy access to the api responses
-def method_missing(name, *args)
+    def method_missing(name, *args)
       @nodes.send(name, args)
     end
   end
@@ -110,10 +110,9 @@ def method_missing(name, *args)
       return nil if @document.kind_of? Array
     
       name = name.to_s
-    
+      elem = Array.new    
       if name.reverse[0..0] == 's'
         # If there is an 's' then assume this is an array of elements we are trying to access
-        elem = Array.new
         @document.elements.each("#{name[0..name.length-2]}") {|e| elem << e}
         return Daylife::Node.new(elem)
       else
