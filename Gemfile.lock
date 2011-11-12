@@ -1,3 +1,13 @@
+GIT
+  remote: http://github.com/seyhunak/twitter-bootstrap-rails.git
+  revision: 160f8a502a63979b29d4f6529b55e88c6c65a9d0
+  specs:
+    twitter-bootstrap-rails (1.4.0)
+      actionpack
+      less
+      less-rails (~> 2.0.1)
+      railties
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -48,6 +58,11 @@ GEM
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.1)
+    less (2.0.7)
+      therubyracer (~> 0.9.2)
+    less-rails (2.0.2)
+      actionpack (~> 3.1.1)
+      less (~> 2.0.7)
     libv8 (3.3.10.2)
     mail (2.3.0)
       i18n (>= 0.4.0)
@@ -125,4 +140,5 @@ DEPENDENCIES
   sass-rails (~> 3.1.4)
   therubyracer
   turn
+  twitter-bootstrap-rails!
   uglifier (>= 1.0.3)

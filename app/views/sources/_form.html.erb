@@ -11,17 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="clearfix">
+    <%= f.label :name %>
+	<div class="input">
+      <%= f.text_field :name %>
+	</div>
   </div>
   <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
+    <%= f.label :url %>
+	<div class="input">
+      <%= f.text_field :url %>
+	  </div>
   </div>
   <div class="field">
-    <%= f.label :daylife_id %><br />
-    <%= f.text_field :daylife_id %>
+    <%= f.label :daylife_id %>
+	<div class="input">
+      <%= f.text_field :daylife_id %>	  
+	</div>
   </div>
   <div class="actions">
     <%= f.submit %>

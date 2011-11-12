@@ -39,6 +39,9 @@ gem 'therubyracer', require: "v8"
 # Nokogiri HTML/XML Parser
 gem 'nokogiri'
 
+# Twitter Bootstrap
+gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
-<h1>Listing articles</h1>
-
-<table>
+<h1>Listing articles</h1> 
+<%= link_to 'New Article', new_article_path, :class => "btn primary" %><br /><br />
+<table class="zebra-striped">
   <tr>
     <th>Name</th>
     <th>Content</th>
@@ -31,4 +31,4 @@
 
 <br />
 
-<%= link_to 'New Article', new_article_path %>
+<%= link_to 'New Article', new_article_path, :class => "btn primary" %> <br /><br />

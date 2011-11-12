@@ -12,20 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+	<div class="input">
+	  <%= f.text_field :name %>	  
+	</div>
   </div>
   <div class="field">
-    <%= f.label :search_string %><br />
-    <%= f.text_field :search_string %>
+    <%= f.label :search_string %>
+	<div class="input">
+	  <%= f.text_field :search_string %>	  
+	</div>
   </div>
   <div class="field">
-    <%= f.label :from_date %><br />
-    <%= f.datetime_select :from_date %>
+    <%= f.label :from_date %>
+	<div class="input">
+	  <%= f.datetime_select :from_date %>	  
+	</div>
   </div>
   <div class="field">
-    <%= f.label :to_date %><br />
-    <%= f.datetime_select :to_date %>
+    <%= f.label :to_date %>
+	<div class="input">
+	  <%= f.datetime_select :to_date %>	  
+	</div>
   </div>
   <div class="actions">
     <%= f.submit %>
