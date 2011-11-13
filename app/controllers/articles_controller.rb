@@ -1,10 +1,12 @@
 require 'daylife'
 require 'open-uri'
+require 'will_paginate/array' 
+
 class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.all.paginate :page => params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

@@ -42,6 +42,9 @@ gem 'nokogiri'
 # Twitter Bootstrap
 gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
+# Pagination
+gem 'will_paginate', '~> 3.0'
+
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false

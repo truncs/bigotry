@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
-    has_many :events
-    has_many :sources
+  cattr_reader :per_page
+  @@per_page = 10
+  has_many :events
+  has_many :sources
 end
