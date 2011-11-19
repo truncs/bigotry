@@ -142,5 +142,14 @@ class ArticlesController < ApplicationController
     b = b.gsub(/\(.*?\)/,"")
     b = b.gsub(/<.*?>/,"")
     b = b.gsub(/^.*?\(.*?\).*?--/,"")
+
+    # Replace 
+    # ? => ?.
+    # ! => !.
+    # ... => <blank>
+    # so that the text is suitable for pcfg parsers
+    b = b.gsub(/\?/,"?.")
+    b = b.gsub(/\!/,"!.")
+    b = b.gsub(/\.\.\./, "")
   end
 end
