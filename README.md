@@ -1,5 +1,5 @@
-Bigotry is  RoR app written for mining news data
----------------------------------------------------
+Bigotry - Mine news data 
+================================================
 
 
 Setup 
@@ -12,4 +12,10 @@ development:
   api_key:
   shared_secret:
 
+
+Screenshots
+=============
+
+
+![1](https://github.com/truncs/bigotry/raw/master/app/assets/images/screenshot1.png)
 
