@@ -11,7 +11,7 @@ Setup
         development:
             api_key:
             shared_secret:
-*   You can obtain these keys by getting a developer account daylife.com
+*   You can obtain these keys by getting a developer account on daylife.com
 
 Screenshots
 =============
