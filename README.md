@@ -8,9 +8,9 @@ Setup
 *   Create a new file in config/ called as daylife.yaml
 *   The format of the file looks like this 
 
-    development:
-      api_key:
-      shared_secret:
+        development:
+            api_key:
+            shared_secret:
 *   You can obtain these keys by getting a developer account daylife.com
 
 Screenshots
