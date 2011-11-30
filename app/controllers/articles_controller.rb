@@ -78,12 +78,18 @@ class ArticlesController < ApplicationController
                   @article.source_id = @source.id
                   @article.event_id = @event.id
                   #  logger.info @article.content
-                  if @article.save
-                    num_articles += 1
-                  else
-                    logger.info 'Could not save the article ' + a.url
+
+                  # Save the article only if the sentence count 
+                  # count is greater that 10, since small articles are 
+                  # of no use to us.
+                  if @article.sentence_count > 10
+                    if @article.save
+                      num_articles += 1
+                    else
+                      logger.info 'Could not save the article ' + a.url
+                    end
                   end
-                  
+
                 rescue => e
                     logger.info "error is: #{e}"
                 end
