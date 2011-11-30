@@ -1,6 +1,7 @@
 require 'daylife'
 require 'open-uri'
 require 'will_paginate/array' 
+require 'tactful_tokenizer'
 
 class ArticlesController < ApplicationController
   # GET /articles
@@ -47,6 +48,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @daylife = daylife_helper
+    m = TactfulTokenizer::Model.new
     num_articles = 0
     params[:event_checkbox].each do |event_key, event_value|
       if event_value == "yes"
@@ -69,7 +71,10 @@ class ArticlesController < ApplicationController
                   @article = Article.new
                   @article.headline = a.headline
                   @article.url = a.url
-                  @article.content =  enrich_data(Readability::Document.new(source).content)
+                  content = Readability::Document.new(source).content
+                  logger.info m.tokenize_text(content).count
+                  @article.content =  enrich_data(content)
+                  @article.sentence_count = m.tokenize_text(@article.content).count
                   @article.source_id = @source.id
                   @article.event_id = @event.id
                   #  logger.info @article.content
@@ -141,7 +146,7 @@ class ArticlesController < ApplicationController
     b  = b.join("")
     b = b.gsub(/\(.*?\)/,"")
     b = b.gsub(/<.*?>/,"")
-    b = b.gsub(/^.*?\(.*?\).*?--/,"")
+   b = b.gsub(/^.*?\(.*?\).*?--/,"")
 
     # Replace 
     # ? => ?.
