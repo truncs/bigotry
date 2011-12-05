@@ -9,8 +9,8 @@ Setup
 *   The format of the file looks like this 
 
         development:
-            api_key:
-            shared_secret:
+          api_key: your_api_key
+          shared_secret: your_shared_secret
 *   You can obtain these keys by getting a developer account on daylife.com
 
 Screenshots
